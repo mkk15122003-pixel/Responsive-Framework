@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Login | Mahendra Book Store</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #210047; 
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      max-width: 450px;
+      margin: 80px auto;
+      background-color: #ffffff; /* White card */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .form-container h1 {
+      color: #002147;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-container h3 {
+      color: #270047;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      color: #002147;
+    }
+    .form-control:focus {
+      border-color: #990df0;
+      box-shadow: 0 0 5px rgba(119, 13, 240, 0.5);
+    }
+    .btn-dark {
+      background-color: #1c0047;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      position: relative;
+    }
+    .btn-dark:hover {
+      background-color: #a40df0;
+      color: #002147;
+    }
+    .spinner-border {
+      display: none; /* hidden by default */
+      width: 1.2rem;
+      height: 1.2rem;
+      border-width: 2px;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    .text-center a {
+      color: #910df0;
+      text-decoration: none;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container form-container">
+    <h1>Mahendra Book Store</h1>
+    <h3>User Login</h3>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn btn-dark w-100" id="loginBtn">
+        Login
+        <div class="spinner-border text-light" role="status" id="spinner"></div>
+      </button>
+    </form>
+    <p class="text-center mt-3">Don't have an account? <a href="registation.html">Register here</a></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent form submission
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const spinner = document.getElementById('spinner');
+      const loginBtn = document.getElementById('loginBtn');
+
+      // Check credentials
+      if(email === 'mahendra@gmail.com' && password === 'mk143') {
+        // Show spinner
+        spinner.style.display = 'inline-block';
+        loginBtn.disabled = true; // disable button
+
+        // Wait 3 seconds then redirect
+        setTimeout(() => {
+          window.location.href = 'home.html';
+        }, 3000);
+      } else {
+        alert("❌ Invalid email or password. Try again.");
+      }
+    });
+  </script>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+</html>

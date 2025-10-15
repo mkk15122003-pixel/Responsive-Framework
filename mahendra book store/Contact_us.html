@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Mahendra Book Store</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #230047;
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: 80px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .form-container h1, .form-container h3 {
+      color: #230047;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      color: #2f0047;
+    }
+    .form-control:focus {
+      border-color: #c98bef;
+      box-shadow: 0 0 5px rgba(134, 13, 240, 0.5);
+    }
+    .btn-dark {
+      background-color: #2b0047;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+    }
+    .btn-dark:hover {
+      background-color: #860df0;
+      color: #2d0047;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container form-container">
+    <h1>Mahendra Book Store</h1>
+    <h3>Customer Contact Form</h3>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Type your message here..." required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="inquiry" class="form-label">Inquiry Type</label>
+        <select class="form-select" id="inquiry" required>
+          <option value="">Select an option</option>
+          <option value="order">Order Related</option>
+          <option value="product">Product Inquiry</option>
+          <option value="feedback">Feedback</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="newsletter">
+        <label class="form-check-label" for="newsletter">Subscribe to our newsletter</label>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Rate Your Experience</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="rating" id="excellent" value="excellent">
+          <label class="form-check-label" for="excellent">Excellent</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="rating" id="good" value="good">
+          <label class="form-check-label" for="good">Good</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="rating" id="average" value="average">
+          <label class="form-check-label" for="average">Average</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="rating" id="poor" value="poor">
+          <label class="form-check-label" for="poor">Poor</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark w-100">Submit</button>
+    </form>
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <title>Mahendra Book Store</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f4fa; 
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #3f0047 !important; 
+    }
+    .navbar-brand {
+      color: white !important;
+    }
+    .btn-outline-dark {
+      border-color: #e8e3e9;
+      color: #d991f4;
+    }
+    .btn-outline-dark:hover {
+      background-color: #c67fef;
+      color: #4f0969;
+    }
+
+    /* Category buttons */
+    .book-type {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 45px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: #220040;
+      color: white;
+      transition: 0.3s;
+      width: 100%;
+    }
+    .book-type:hover {
+      background-color: #cb86f0;
+      color: black;
+    }
+
+    /* Book cards */
+    .book-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #d69fef;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      height: 100%;
+      transition: 0.3s;
+    }
+    .book-card:hover {
+      box-shadow: 0 4px 12px rgba(140, 0, 255, 0.3);
+    }
+
+    h5 {
+      font-weight: bold;
+      color: #3f0969;
+    }
+    p.small {
+      color: #333;
+    }
+
+    /* Section titles */
+    .section-title {
+      background-color: #2c0047;
+      color: white;
+      padding: 10px 0;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg px-3">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <!-- Left: Brand -->
+      <a class="navbar-brand fw-bold" href="home.html">Mahendra Book Store</a>
+
+      <!-- Right: Buttons -->
+      <div>
+        <a href="contact_us.html" class="btn btn-outline-dark me-2">Contact Us</a>
+        <a href="registation.html" class="btn btn-outline-dark me-2">Sign Up</a>
+        <a href="login.html" class="btn btn-outline-dark">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-2">
+
+    <!-- Category Navigation -->
+    <div class="row my-3 text-center">
+      <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <a href="adventure_book.html" class="book-type">Adventure Books</a>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <a href="horror_books.html" class="book-type">Horror Books</a>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <a href="comedy_books.html" class="book-type">Comedy Books</a>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 mb-2">
+        <a href="kids_books.html" class="book-type">Kids Books</a>
+      </div>
+    </div>
+
+    <!-- Category Descriptions -->
+    <div class="row gx-3 gy-3">
+      <div class="col-12 col-md-3">
+        <div class="book-card">
+          <p class="small">Adventure books spark imagination with excitement, danger, and exploration.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="book-card">
+          <p class="small">Horror books chill the spine with suspenseful storytelling and eerie plots.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="book-card">
+          <p class="small">Comedy books offer laughs through witty characters and humorous scenes.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-3">
+        <div class="book-card">
+          <p class="small">Kids’ books inspire wonder with lovable characters and magical adventures.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Arrivals -->
+    <div class="row my-4">
+      <div class="col-12 section-title">New Arrivals</div>
+    </div>
+    <div class="row gx-4 gy-4 mb-4">
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>Heart of Darkness</h5>
+          <p class="small">Explore the African Congo’s depths in this classic adventure by Joseph Conrad.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>Fitness</h5>
+          <p class="small">A fitness book provides information on exercises, nutrition, and other aspects of physical and mental wellness</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>The Hobbit</h5>
+          <p class="small">J.R.R. Tolkien’s timeless fantasy about Bilbo’s unexpected journey is a must-read.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Sellers -->
+    <div class="row my-4">
+      <div class="col-12 section-title">Best Sellers</div>
+    </div>
+    <div class="row gx-4 gy-4 mb-5">
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>Harry Potter</h5>
+          <p class="small">Explore magical adventures and rich character arcs that shaped generations.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>Trust Me</h5>
+          <p class="small">Set in Bollywood, this hit chick-lit novel brings drama and romance to life.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="book-card">
+          <h5>The Midnight Library</h5>
+          <p class="small">Journey through lives not lived in this reflective and imaginative novel.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+</html>
+

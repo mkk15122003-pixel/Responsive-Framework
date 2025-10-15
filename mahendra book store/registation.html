@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Registration | Mahendra Book Store</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #230047; 
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      max-width: 450px;
+      margin: 80px auto;
+      background-color: #ffffff; /* White form card */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .form-container h1 {
+      color: #270047;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-container h3 {
+      color: #230047;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      color: #210047;
+    }
+    .form-control:focus {
+      border-color: #c67cf5;
+      box-shadow: 0 0 5px rgba(138, 13, 240, 0.5);
+    }
+    .btn-dark {
+      background-color: #2c0047;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+    }
+    .btn-dark:hover {
+      background-color: #990df0;
+      color: #002147;
+    }
+    .text-center a {
+      color: #990df0;
+      text-decoration: none;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container form-container">
+    <h1>Mahendra Book Store</h1>
+    <h3>User Registration</h3>
+    <form>
+      <div class="mb-3">
+        <label for="fullname" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullname" placeholder="Enter your full name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Mobile Number</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Enter mobile number" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Create password" required>
+      </div>
+      <div class="mb-3">
+        <label for="confirm-password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required>
+      </div>
+      <button type="submit" class="btn btn-dark w-100">Register</button>
+    </form>
+    <p class="text-center mt-3">Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script src="./js/bootstrap.bundle.js"></script>
+</body>
+</html>

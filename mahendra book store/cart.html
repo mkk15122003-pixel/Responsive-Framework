@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart | Mahendra Book Store</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #210047; /* Dark blue background */
+      font-family: Arial, sans-serif;
+    }
+    .cart-container {
+      max-width: 700px;
+      margin: 80px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .cart-container h1 {
+      text-align: center;
+      color: #002147;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .cart-table th, .cart-table td {
+      vertical-align: middle;
+    }
+    .cart-table th {
+      background-color: #c495e1;
+      color: #200047;
+    }
+    .btn-dark {
+      background-color: #002147;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+    }
+    .btn-dark:hover {
+      background-color: #e5c2f5;
+      color: #002147;
+    }
+    .total-price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #002147;
+    }
+    .empty-cart {
+      text-align: center;
+      padding: 50px;
+      font-size: 1.2rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container cart-container">
+    <h1>Your Cart 🛒</h1>
+
+    <div id="cart-content">
+      <div class="table-responsive">
+        <table class="table table-bordered cart-table">
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Price (₹)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- Items added dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-end my-3">
+        <span class="total-price">Total: ₹<span id="total-price">0</span></span>
+      </div>
+
+      <div class="text-center">
+        <button id="buy-button" class="btn btn-dark w-50" onclick="goToBuyPage()">Buy Now</button>
+      </div>
+    </div>
+
+    <div id="empty-message" class="empty-cart d-none">
+      Your cart is empty. Add some books to proceed! 📚
+    </div>
+  </div>
+
+  <script>
+    function loadCart() {
+      const cartItemsContainer = document.getElementById("cart-items");
+      const totalPriceEl = document.getElementById("total-price");
+      const emptyMessage = document.getElementById("empty-message");
+      const cartContent = document.getElementById("cart-content");
+
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      cartItemsContainer.innerHTML = "";
+      let total = 0;
+
+      if(cart.length === 0) {
+        emptyMessage.classList.remove("d-none");
+        cartContent.style.display = "none";
+        return;
+      }
+
+      emptyMessage.classList.add("d-none");
+      cartContent.style.display = "block";
+
+      cart.forEach((item, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>₹${item.price}</td>
+          <td><button class="btn btn-sm btn-dark" onclick="removeFromCart(${index})">Remove</button></td>
+        `;
+        cartItemsContainer.appendChild(row);
+        total += parseFloat(item.price);
+      });
+
+      totalPriceEl.textContent = total.toFixed(2);
+    }
+
+    function removeFromCart(index) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function goToBuyPage() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if(cart.length === 0){
+        alert("Your cart is empty! Add some books before buying.");
+        return;
+      }
+      window.location.href = "buy.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", loadCart);
+  </script>
+
+</body>
+</html>

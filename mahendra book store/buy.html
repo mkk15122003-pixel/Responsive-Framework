@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Choose Payment Method</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Visual tweaks to match screenshot */
+    body {
+      background: #28084a; /* deep blue background like image */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .payment-card {
+      width: 720px;
+      max-width: 95%;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .option-btn {
+      text-align: left;
+      height: 56px;
+      border-radius: 6px;
+    }
+    .option-btn.active {
+      border: 1px solid #390b61;
+      background: #e9f2fb;
+    }
+    .upi-row {
+      margin-top: 1rem;
+    }
+    .pay-btn {
+      height: 44px;
+      border-radius: 6px;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #b67fe6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card payment-card">
+    <div class="card-body p-4 p-md-5">
+      <h3 class="card-title text-center mb-4">Choose Payment Method</h3>
+
+      <!-- Buttons as selectable options -->
+      <div class="d-grid gap-3 mb-3">
+        <button type="button" class="btn btn-light option-btn" data-value="cod" id="opt-cod">
+          Cash on Delivery (COD)
+        </button>
+
+        <button type="button" class="btn btn-light option-btn active" data-value="upi" id="opt-upi">
+          UPI Payment
+        </button>
+
+        <button type="button" class="btn btn-light option-btn" data-value="card" id="opt-card">
+          Credit/Debit Card
+        </button>
+      </div>
+
+      <!-- UPI form (hidden unless UPI selected) -->
+      <div id="upi-section" class="upi-row">
+        <h5 class="mb-2">Pay via UPI</h5>
+        <label class="form-label small text-uppercase mb-1">UPI ID</label>
+        <div class="input-group mb-3">
+          <input type="text" id="upi-id" class="form-control" placeholder="example@bank" aria-label="UPI ID" />
+        </div>
+      </div>
+
+      <!-- Pay Now button -->
+      <div class="text-center mt-3">
+        <button id="pay-now" class="btn btn-dark w-100 pay-btn" disabled>Pay Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS and dependency (Popper included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Simple interactivity: select option, show/hide UPI input, enable Pay button
+    const options = document.querySelectorAll('.option-btn');
+    const upiSection = document.getElementById('upi-section');
+    const upiInput = document.getElementById('upi-id');
+    const payNow = document.getElementById('pay-now');
+
+    // initialize: treat the button with .active as selected
+    let selected = document.querySelector('.option-btn.active')?.dataset.value || 'upi';
+    const updateUI = () => {
+      // toggle active class visually
+      options.forEach(btn => {
+        if (btn.dataset.value === selected) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+
+      // show/hide upi section
+      if (selected === 'upi') {
+        upiSection.style.display = '';
+        // enable Pay Now only if upi has some text that looks like an id
+        payNow.disabled = !(upiInput.value.trim().length > 3 && upiInput.value.includes('@'));
+      } else {
+        upiSection.style.display = 'none';
+        payNow.disabled = false; // COD and Card enable pay immediately
+      }
+    };
+
+    options.forEach(btn => {
+      btn.addEventListener('click', () => {
+        selected = btn.dataset.value;
+        // clear UPI field if switching away optionally:
+        // upiInput.value = '';
+        updateUI();
+      });
+    });
+
+    // simple validation for UPI input: basic '@' presence and length
+    upiInput.addEventListener('input', () => {
+      if (selected === 'upi') {
+        payNow.disabled = !(upiInput.value.trim().length > 3 && upiInput.value.includes('@'));
+      }
+    });
+
+    // pay button handler (demo)
+    payNow.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (selected === 'upi') {
+        const upi = upiInput.value.trim();
+        if (!upi || upi.length < 4 || !upi.includes('@')) {
+          return alert('Please enter a valid UPI ID (e.g. name@bank).');
+        }
+        alert('Processing UPI payment for: ' + upi);
+      } else if (selected === 'cod') {
+        alert('Selected Cash on Delivery. Order placed!');
+      } else if (selected === 'card') {
+        alert('Redirecting to Card payment gateway (demo).');
+      }
+    });
+
+    // initial render
+    updateUI();
+  </script>
+</body>
+</html>

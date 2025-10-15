@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <title>Kids Books - Mahendra Book Store</title>
+<style>
+  body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: #f4f0fa; /* Light bg like homepage */
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #220047 !important;
+  }
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar .nav-link:hover,
+  .navbar .dropdown-item:hover {
+    background: #2f016b;
+    color: #fff;
+  }
+  .dropdown-menu {
+    background-color: #190047;
+  }
+  .dropdown-item { color: #fff; }
+  .navbar-nav .nav-link.active {
+    font-weight: bold;
+    color: #e0c4fc !important;
+  }
+
+  /* Section Title */
+  .section-title {
+    background-color: #220047;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  /* Book Card */
+  .book-card {
+    background: #fff;
+    border: 1px solid #ca9fef;
+    border-radius: 8px;
+    padding: 15px;
+    transition: box-shadow 0.3s ease, transform 0.2s;
+    height: 420px;
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .book-card:hover {
+    box-shadow: 0 0 10px rgba(102, 6, 246, 0.7);
+    transform: scale(1.02);
+  }
+  .price {
+    font-weight: bold;
+    color: #094969;
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+  .book-card img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  /* Buttons theme */
+  .btn-primary {
+    background-color: #002147;
+    border: none;
+  }
+  .btn-primary:hover {
+    background-color: #d9b8f0;
+    color: #002147;
+  }
+  .btn-success {
+    background-color: #360969;
+    border: none;
+  }
+  .btn-success:hover {
+    background-color: #d9b8f0;
+    color: black;
+  }
+
+  /* Cart Badge */
+  .cart-badge {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: relative;
+    top: -10px;
+    left: -5px;
+  }
+
+  /* Price Range */
+  .filter-box {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+  #priceRange { width: 80%; margin: auto; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand fw-bold ms-2" href="home.html">Mahendra Book Store</a>
+  <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      <a href="contact_us.html" class="btn btn-outline-light me-2">Contact Us</a>
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" id="bookDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="bookDropdown">
+          <li><a class="dropdown-item" href="home.html">Home</a></li>
+          <li><a class="dropdown-item" href="adventure_book.html">Adventure Books</a></li>
+          <li><a class="dropdown-item" href="horror_books.html">Horror Books</a></li>
+          <li><a class="dropdown-item" href="comedy_books.html">Comedy Books</a></li>
+          <li><a class="dropdown-item active" href="kids_books.html">Kids Books</a></li>
+        </ul>
+      </li>
+      <!-- Cart -->
+      <li class="nav-item">
+        <a class="nav-link position-relative" href="cart.html">
+          🛒 <span id="cartCount" class="cart-badge">0</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Page Title -->
+<div class="text-center my-4">
+  <h2 class="fw-bold">Kids Books</h2>
+  <p>Fun, colorful, and educational books for young readers.</p>
+</div>
+
+<!-- Price Range Filter -->
+<div class="filter-box mb-4">
+  <label for="priceRange" class="form-label fw-bold">
+    Filter by Price: <span id="priceValue">400</span>₹
+  </label><br>
+  <input type="range" class="form-range" min="200" max="400" step="20" id="priceRange" value="400">
+</div>
+
+<!-- Books Grid -->
+<div class="container-fluid px-0">
+  <div class="row g-4" id="booksContainer">
+
+    <!-- Book 1 -->
+    <div class="col-12 col-md-4 book-item" data-price="250">
+      <div class="book-card shadow-sm">
+        <img src="./image/kide-1.jpeg" alt="Charlotte's Web">
+        <h5>Charlotte's Web</h5>
+        <p>A heartwarming tale of friendship between a pig and a spider.</p>
+        <div class="price">₹280</div>
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary add-to-cart-btn" data-book="Charlotte's Web" data-price="250">Add to Cart</button>
+          <button class="btn btn-success buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="col-12 col-md-4 book-item" data-price="300">
+      <div class="book-card shadow-sm">
+        <img src="./image/kide-2.jpeg" alt="Diary of a Wimpy Kid">
+        <h5>Diary of a Wimpy Kid</h5>
+        <p>Laugh along with Greg Heffley in this best-selling illustrated series.</p>
+        <div class="price">₹350</div>
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary add-to-cart-btn" data-book="Diary of a Wimpy Kid" data-price="300">Add to Cart</button>
+          <button class="btn btn-success buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="col-12 col-md-4 book-item" data-price="220">
+      <div class="book-card shadow-sm">
+        <img src="./image/kide-3.jpeg" alt="The Cat in the Hat">
+        <h5>The Cat in the Hat</h5>
+        <p>Dr. Seuss's classic book that makes reading fun for kids.</p>
+        <div class="price">₹320</div>
+        <div class="d-flex gap-2 mt-3">
+          <button class="btn btn-primary add-to-cart-btn" data-book="The Cat in the Hat" data-price="220">Add to Cart</button>
+          <button class="btn btn-success buy-now-btn">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS -->
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartCount = document.getElementById('cartCount');
+cartCount.textContent = cart.length;
+
+// Add to Cart
+document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const bookName = button.getAttribute('data-book');
+    const price = parseInt(button.getAttribute('data-price'));
+    cart.push({ name: bookName, price: price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    cartCount.textContent = cart.length;
+    alert(`Added "${bookName}" (₹${price}) to your cart!`);
+  });
+});
+
+// Buy Now
+document.querySelectorAll('.buy-now-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    window.location.href = "buy.html";
+  });
+});
+
+// Price Filter
+const priceRange = document.getElementById('priceRange');
+const priceValue = document.getElementById('priceValue');
+priceRange.addEventListener('input', () => {
+  let maxPrice = parseInt(priceRange.value);
+  priceValue.textContent = maxPrice;
+  document.querySelectorAll('.book-item').forEach(item => {
+    let bookPrice = parseInt(item.getAttribute('data-price'));
+    item.style.display = (bookPrice <= maxPrice) ? "block" : "none";
+  });
+});
+</script>
+
+<!-- Bootstrap Bundle JS -->
+<script src="./js/bootstrap.bundle.js"></script>
+</body>
+</html>
