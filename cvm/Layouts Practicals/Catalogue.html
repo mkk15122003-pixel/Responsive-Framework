@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catalogue - CVM University</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Top Frame */
+    .title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: black;
+      color: aliceblue;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 5px 20px;
+      z-index: 1000;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .title-text {
+      font-size: 24px;
+      text-align: center;
+      flex: 1;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      position: fixed;
+      top: 60px;
+      width: 100%;
+      background-color: #333;
+      z-index: 999;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-bar li {
+      margin: 0 15px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+      color: lightblue;
+    }
+
+    /* Main Content */
+    main.content {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 110px;
+    }
+
+    .left-frame {
+      flex: 1 1 200px;
+      max-width: 250px;
+      background-color: #ec9f9f;
+      padding: 20px;
+    }
+
+    .left-frame h3 {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .left-frame ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .left-frame li {
+      margin: 10px;
+    }
+
+    .left-frame a {
+      color: #0f0f0f;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .left-frame a:hover {
+      color: red;
+    }
+
+    .right-frame {
+      flex: 3 1 400px;
+      background-color: #79cef5;
+      padding: 20px;
+      margin-left: 10px;
+      min-height: 400px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th,
+    td {
+      border: 1px solid #000;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+
+      .left-frame,
+      .right-frame {
+        flex: 1 1 100%;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Frame -->
+  <header class="title-bar">
+    <img src="image/cvm-logo.png" alt="CVM University Logo" class="logo">
+    <h1 class="title-text">THE CVM UNIVERSITY</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="Home.html">HOME</a></li>
+      <li><a href="Istar.html">ISTAR</a></li>
+      <li><a href="Nvpass.html">NVPASS</a></li>
+      <li><a href="Semcom.html">SEMCOM</a></li>
+      <li><a href="Adit.html">ADIT</a></li>
+      <li><a href="Catalogue.html">CATALOGUE</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="content">
+    <!-- Left Frame -->
+    <div class="left-frame">
+      <h3>Departments</h3>
+      <ul>
+        <li><a href="#">Computer Science</a></li>
+        <li><a href="#">Industrial Chemistry</a></li>
+        <li><a href="#">Microbiology</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Frame -->
+    <div class="right-frame">
+      <h2>Course Catalogue</h2>
+      <table>
+        <tr>
+          <th>Department</th>
+          <th>Course Code</th>
+          <th>Course Name</th>
+          <th>Credits</th>
+        </tr>
+        <tr>
+          <td>Computer Science</td>
+          <td>CS101</td>
+          <td>Introduction to Programming</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Industrial Chemistry</td>
+          <td>CH101</td>
+          <td>Organic Chemistry</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Microbiology</td>
+          <td>MB101</td>
+          <td>General Microbiology</td>
+          <td>3</td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 CVM University. All rights reserved.
+  </footer>
+
+</body>
+
+</html>
